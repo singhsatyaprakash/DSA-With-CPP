@@ -1,30 +1,20 @@
 #include<iostream>
 using namespace std;
-class Node{//represent each element of linked list..
+class Node{
 public:
     int data;
     Node* next;
-    //Constructor to assign value in node..
     Node(int val){
         data=val;
-        next=NULL;//here element are single not linked yet...
-    }
-    ~Node(){
-        // cout<<"Destuctor for node data "<<data<<endl;
-        if(next!=NULL){
-            delete next;
-            next=NULL;
-        }
-        cout<<"Destuctor for node data "<<data<<endl;
+        next=NULL;
     }
 };
-class List{//class to link all element with each other...
-    Node* head;//to remember the starting point of list..
-    Node* tail;//to remember the ending point of list..
+class List{
+    Node* head;
+    Node* tail;
     public:
-    //constructor to link the list..
     List(){
-        head=NULL;//initially head and tail are at same point and Null..
+        head=NULL;
         tail=NULL;
     }
     void push_front(int val){
@@ -44,12 +34,23 @@ class List{//class to link all element with each other...
         }
         cout<<"NULL"<<endl;
     }
-    ~List(){
-        cout<<"~List"<<endl;
-        if(head!=NULL){
-            delete head;
-            head=NULL;
+    void pop_front(){
+        Node* temp=head;
+        if(head==NULL){
+            cout<<"Linked list is empty."<<endl;
+            return;
         }
+        head=head->next;
+        temp->next=NULL;
+        delete temp;
+    }
+    void pop_back(){
+        Node* temp=head;
+        while(temp->next->next!=NULL){
+            temp=temp->next;
+        }
+        delete temp->next->next;
+        temp->next=NULL;
     }
 };
 int main(){
@@ -57,6 +58,10 @@ int main(){
     ll.push_front(3);
     ll.push_front(2);
     ll.push_front(1);
+    ll.printList();
+    ll.pop_front();
+    ll.printList();
+    ll.pop_back();
     ll.printList();
     return 0;
 }
