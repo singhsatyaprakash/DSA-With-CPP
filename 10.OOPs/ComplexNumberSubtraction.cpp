@@ -22,8 +22,6 @@ class Complex{
             Complex c3(resReal,resImg);
             return c3;
         }
-
-    
 };
 int main(){
     Complex c1(2,4);
