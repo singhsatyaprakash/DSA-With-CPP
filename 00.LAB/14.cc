@@ -21,7 +21,9 @@ class Score{
         }
 };
 int main(){
-    Score s1(60);
+    Score s1(50);
+    cout<<"Before increment"<<endl;
+    s1.display();
     ++s1;
     s1.display();
     s1++;
