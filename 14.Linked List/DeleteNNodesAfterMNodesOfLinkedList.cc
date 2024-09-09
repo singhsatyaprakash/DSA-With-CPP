@@ -44,7 +44,7 @@ void PrintList(Node* head){
 }
 Node* DeleteNNodesAfterMNodes(int m,int n,Node* head){
     if(head==nullptr){
-        return nullptr;
+        return nullptrspira;
     }
     Node* prev=head;
     for(int i=0;i<m;i++){
