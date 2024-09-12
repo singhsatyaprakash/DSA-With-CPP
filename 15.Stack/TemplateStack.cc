@@ -1,10 +1,11 @@
 #include<iostream>
 #include<vector>
 using namespace std;
+template<class T>
 class Stack{
-    vector<int>vec;
+    vector<T>vec;
 public:
-    void push(int val){
+    void push(T val){
         vec.push_back(val);
     }
     void pop(){
@@ -14,21 +15,18 @@ public:
         }
         vec.pop_back();
     }
-    int top(){
-        if(isEmpty()){
-            cout<<"Stack is empty."<<endl;
-            return -1;
-        }else{
+    T top(){
         int topIdx=vec.size()-1;
         return vec[topIdx];
-        }
     }
     bool isEmpty(){
         return vec.size()==0;
     }
 };
 int main(){
-    Stack  s;
+    //template...
+    //string/ char/ int /float
+    Stack<int>  s;
     s.push(11);
     s.push(12);
     s.push(13);

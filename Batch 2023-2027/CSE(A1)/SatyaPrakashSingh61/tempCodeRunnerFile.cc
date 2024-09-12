@@ -17,7 +17,7 @@ int main(){
     int max=-1;
     int pos=-1;
     for(int i=0;i<26;i++){
-        if(arr[i]>max){
+        if(arr[i]<max){
             max=arr[i];
             pos=i;
         }
@@ -25,4 +25,3 @@ int main(){
     char ch= char('a' + pos);
     cout<<"Most occuring character is:"<<ch<<endl;
     return 0;
-}
