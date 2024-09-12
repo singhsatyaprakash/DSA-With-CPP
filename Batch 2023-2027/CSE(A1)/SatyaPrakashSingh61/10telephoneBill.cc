@@ -47,5 +47,8 @@ int main(){
     Tellcal s1(vname,vphono,vcall);
     s1.compute();
     s1.display();
+    cout<<"****************************************************************************"<<endl;
+    cout<<"Prepared and Excuted By:Satya Prakash Singh  CSE3(A1)  ClassRollNo:61"<<endl;
+    cout<<"****************************************************************************"<<endl
     return 0;
 }

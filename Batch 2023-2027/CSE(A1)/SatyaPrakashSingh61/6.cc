@@ -51,5 +51,8 @@ int main(){
     // Output the results
     cout<<"\nThe highest temperature was recorded in "<<cityNames[highCityIndex]<<" on Day "<<highDayIndex+1<<" with "<<highestTemp<< " degrees.\n";     
     cout<<"The lowest temperature was recorded in "<<cityNames[lowCityIndex]<<" on Day "<<lowDayIndex+1<<" with "<<lowestTemp<<" degrees.\n";
+    cout<<"****************************************************************************"<<endl;
+    cout<<"Prepared and Excuted By:Satya Prakash Singh  CSE3(A1)  ClassRollNo:61"<<endl;
+    cout<<"****************************************************************************"<<endl
     return 0;
 }
