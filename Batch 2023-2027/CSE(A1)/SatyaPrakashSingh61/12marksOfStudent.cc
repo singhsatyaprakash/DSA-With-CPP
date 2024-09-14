@@ -1,3 +1,11 @@
+/*
+12.Anna is competing to be the top student in her high school. She wants to know how many of her classmates scored higher than she did on their exams this semester.
+You need to create a class named Student with the following features:
+Data Members:
+An array scores[5] that stores a student's scores for 5 exams.
+Member Functions:
+A void input() function that reads 5 exam scores and stores them in the scores array.
+An int calculateTotalScore() function that calculates and returns the sum of the scores in the scores array.*/
 #include<iostream>
 using namespace std;
 class Student{
@@ -41,6 +49,6 @@ int main(){
     cout<<"No. of student having higer marks than Anna are: "<<highmarkStudent<<endl;
     cout<<"****************************************************************************"<<endl;
     cout<<"Prepared and Excuted By:Satya Prakash Singh  CSE3(A1)  ClassRollNo:61"<<endl;
-    cout<<"****************************************************************************"<<endl
+    cout<<"****************************************************************************"<<endl;
     return 0;
 }

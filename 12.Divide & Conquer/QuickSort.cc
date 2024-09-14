@@ -9,7 +9,7 @@ void printSorted(int arr[],int n){
 int partition(int arr[],int si,int ei){
     int i=si-1;
     int pivot=arr[ei];
-    for(int j=si;j<ei;j++){//push all less element to staring by i positon ....
+    for(int j=si;j<ei;j++){//push all less element to starting by i positon ....
         if(arr[j]<=pivot){
             i++;
             swap(arr[i],arr[j]);

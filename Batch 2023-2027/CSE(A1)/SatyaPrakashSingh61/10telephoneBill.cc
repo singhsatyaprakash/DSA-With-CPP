@@ -1,3 +1,16 @@
+/*A class Telcall calculates the monthly phone bill of a consumer. Some of the members of the class are given below: 
+Class name: 
+Data members/instance variable : phno(phone Number), sname(subscriber Name ) n(number of calls made) and amt (bill amount). 
+Member function/methods: 
+TelCall() : Parameterized constructor to assign values to data members. 
+Void compute( ) : to calculate the phone bill amount base on the slabs given below. 
+Void display( ) : to display the details in the specified format. 
+Number of calls Rate 
+1 – 100 Rs. 500/- rental charge only 
+101 – 200 Rs 1.00 per call + rental charge 
+201-300 Rs. 1.20 per call + rental charge 
+Above 300 Rs. 1.50 per call + rental charge
+*/
 #include<iostream>
 #include<string>
 #include<iomanip>
@@ -49,6 +62,6 @@ int main(){
     s1.display();
     cout<<"****************************************************************************"<<endl;
     cout<<"Prepared and Excuted By:Satya Prakash Singh  CSE3(A1)  ClassRollNo:61"<<endl;
-    cout<<"****************************************************************************"<<endl
+    cout<<"****************************************************************************"<<endl;
     return 0;
 }

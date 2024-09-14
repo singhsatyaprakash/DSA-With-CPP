@@ -1,7 +1,19 @@
+/*
+11.Design a class to represent bank account. Includes the following members:
+•Name of depositor
+•Account number
+•Type of account
+•Balance amount in the account
+Methods:
+•To assign initial values
+•To deposit an amount
+•To withdraw an amount after checking balance.
+•To display the name and balance.
+Write a program to incorporate the constructor to provide initial values.
+*/
 #include<iostream>
 #include<string>
 #include<iomanip>
-// #include "mylib.cc"
 using namespace std;
 //Bank Account..
 class Bank{
@@ -34,8 +46,8 @@ class Bank{
             }
         } 
         void displayDetails(){
-            cout<<"Account Holder"<<setw(26)<<"Acoount Number"<<setw(26)<<"Account Type"<<setw(26)<<"Balance"<<endl;
-            cout<<Depositer<<setw(26)<<AccountNumber<<setw(26)<<TypeAcccount<<setw(26)<<balance<<endl;
+            cout<<"Account Holder"<<setw(20)<<"Acoount Number"<<setw(20)<<"Account Type"<<setw(20)<<"Balance"<<endl;
+            cout<<Depositer<<setw(20)<<AccountNumber<<setw(20)<<TypeAcccount<<setw(20)<<balance<<endl;
         }
 };
 int main(){
@@ -101,6 +113,6 @@ int main(){
     } while(n!=0);
     cout<<"****************************************************************************"<<endl;
     cout<<"Prepared and Excuted By:Satya Prakash Singh  CSE3(A1)  ClassRollNo:61"<<endl;
-    cout<<"****************************************************************************"<<endl
+    cout<<"****************************************************************************"<<endl;
     return 0;
 }

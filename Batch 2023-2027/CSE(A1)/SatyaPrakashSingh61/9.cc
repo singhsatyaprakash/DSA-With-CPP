@@ -26,6 +26,6 @@ int main(){
     cout<<"Most occuring character is:"<<ch<<endl;
     cout<<"****************************************************************************"<<endl;
     cout<<"Prepared and Excuted By:Satya Prakash Singh  CSE3(A1)  ClassRollNo:61"<<endl;
-    cout<<"****************************************************************************"<<endl
+    cout<<"****************************************************************************"<<endl;
     return 0;
 }

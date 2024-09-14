@@ -1,3 +1,10 @@
+/*The daily maximum temperatures recorded in 5 cities during the month of January (for all 31days) have been tabulated as follows:
+Cities      Delhi       Mumbai      Kolkatta        Chennai     Dehradun
+1
+2
+.
+10
+Write a program to read the table elements into a two-dimensional array temperature, and to find the city and day corresponding to (a) the highest temperature and (b) the lowest temperature.*/
 #include<iostream>
 #include<iomanip>
 #include<string>
@@ -53,6 +60,6 @@ int main(){
     cout<<"The lowest temperature was recorded in "<<cityNames[lowCityIndex]<<" on Day "<<lowDayIndex+1<<" with "<<lowestTemp<<" degrees.\n";
     cout<<"****************************************************************************"<<endl;
     cout<<"Prepared and Excuted By:Satya Prakash Singh  CSE3(A1)  ClassRollNo:61"<<endl;
-    cout<<"****************************************************************************"<<endl
+    cout<<"****************************************************************************"<<endl;
     return 0;
 }
