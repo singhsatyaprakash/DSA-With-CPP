@@ -9,9 +9,9 @@ int main(){
     for(int i=0;i<n;i++){
         cin>>arr[i];
     }
-    for(int i=0;i<n;i++){
-        for(int j=i;j<n;j++){
-            for(int k=i;k<=j;k++){
+    for(int i=0;i<n;i++){//rows change
+        for(int j=i;j<n;j++){ //column change
+            for(int k=i;k<=j;k++){//printing from row to j length
                 cout<<arr[k];
             }
             cout<<", ";
