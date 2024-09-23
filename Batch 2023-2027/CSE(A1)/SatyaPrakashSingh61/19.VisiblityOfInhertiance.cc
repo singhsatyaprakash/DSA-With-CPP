@@ -52,5 +52,10 @@ int main(){
     ob1.accessBaseMembers();
     ob2.accessBaseMembers();
     ob3.accessBaseMembers();
+    cout<<"****************************************************************************"<<endl;
+    cout<<"Prepared and Excuted By:Satya Prakash Singh  CSE3(A1)  ClassRollNo:61"<<endl;
+    cout<<"****************************************************************************"<<endl;
+
+
     return 0;
 }

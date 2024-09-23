@@ -1,34 +1,54 @@
-C++ program that demonstrates all the possible uses of the scope resolution operator in a single program: */ 
-#include <iostream> 
-using namespace std;  
-int globalv = 50;  
-namespace MyNamespace { 
-    int namespacev = 60; 
-    void displaynamespacev() { 
-        cout << "Namespace variable: " << namespacev << endl;     } 
-    class main_Class { 
-    public: 
-        static int staticvalue;
-        void display() { 
-            cout << "Class member function: " << MyNamespace::main_Class::staticvalue << endl;         } 
-        void setstaticvalue(int value) { 
-            MyNamespace::main_Class::staticvalue = value;         }     }; }  
-int MyNamespace::main_Class::staticvalue = 30;  
-class GlobalClass { 
-public: 
-    void show() {         cout << "Global variable: " << ::globalv << endl;  } };  
-int main() { 
-    cout << "Access global variable: " << ::globalv << endl; 
-    cout << "Access namespace variable: " << MyNamespace::namespacev << endl;  
-    MyNamespace::displaynamespacev();      
-    MyNamespace::main_Class A; 
-    A.display();  
-    A.setstaticvalue(50); 
-    A.display();      
-    GlobalClass globalA; 
-    globalA.show();     
-    cout<<endl;  
-    cout << "*\n";  
-    cout << "Program Prepared & Executed by: UPASANA GAUR, CSE(A1), Class Roll no: 73\n";  
-    cout << "*\n";  
-    return 0; }
+#include<iostream>
+using namespace std;
+// Global variable
+int globalVar=100;
+// Global function
+void globalFunction(){
+    cout<<"This is the global function."<<endl;
+}
+// Namespace example
+namespace ExampleNamespace{
+    int value=10;
+    void displayValue(){
+        cout<<"Value inside ExampleNamespace: "<<value<<endl;
+    }
+}
+// Class example
+class MyClass{
+public:
+    static int staticVar;
+    static void staticFunction(){
+        cout<<"Static function in MyClass."<<endl;
+    }
+    void memberFunction(int staticVar) {
+        cout<<"Local variable in member function: "<<staticVar<<endl;
+        cout<<"Static variable of MyClass: "<<MyClass::staticVar<<endl;
+    }
+};
+// Define static member
+int MyClass::staticVar=50;
+int main(){
+    // 1. Accessing global variable when there is a local variable with the same name
+    int globalVar=200;
+    cout<<"Local variable globalVar: "<<globalVar<<endl;
+    cout<<"Global variable globalVar: "<<::globalVar<<endl;
+
+    // 2. Accessing global function
+    globalFunction();
+
+    // 3. Accessing namespace variables and functions
+    cout<<"Value in namespace ExampleNamespace: "<<ExampleNamespace::value<<endl;
+    ExampleNamespace::displayValue();
+
+    // 4. Accessing class static member variables and functions
+    MyClass::staticFunction();
+    cout<<"Static variable of MyClass: "<<MyClass::staticVar<<endl;
+    
+    // 5. Accessing static member variable using scope resolution operator inside class member function
+    MyClass obj;
+    obj.memberFunction(30);
+    cout<<"****************************************************************************"<<endl;
+    cout<<"Prepared and Excuted By:Satya Prakash Singh  CSE3(A1)  ClassRollNo:61"<<endl;
+    cout<<"****************************************************************************"<<endl;
+    return 0;
+}
