@@ -1,3 +1,3 @@
     cout<<"****************************************************************************"<<endl;
-    cout<<"Prepared and Excuted By:Satya Prakash Singh  CSE3(A1)  ClassRollNo:61"<<endl;
+    cout<<"Prepared and Executed By:Satya Prakash Singh  CSE3(A1)  ClassRollNo:61"<<endl;
     cout<<"****************************************************************************"<<endl;
