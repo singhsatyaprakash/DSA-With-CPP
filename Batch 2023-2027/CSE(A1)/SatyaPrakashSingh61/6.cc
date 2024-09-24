@@ -30,7 +30,7 @@ int main(){
     cout<<endl;
     // Print temperature data in tabular format
     for(int day=0;day<days;day++){
-        cout<<setw(10)<<day+1;//Day number
+        cout<<setw(10)<<day+1;//Day number 1
         for(int city=0;city<cities;city++){
             cout<<setw(10)<<temperature[city][day];
         }
