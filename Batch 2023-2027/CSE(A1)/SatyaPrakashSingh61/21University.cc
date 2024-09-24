@@ -22,10 +22,10 @@ public:
 class University{
 private:
     string name;
-    vector<Department*>departments;//University has multiple Departments...
+    vector<Department*>departments;
 public:
     University(string uniName):name(uniName){}
-    // Function to add a department to the university
+    
     void addDepartment(Department* dept) {
         departments.push_back(dept);
     }
@@ -39,17 +39,12 @@ public:
 };
 
 int main() {
-    // Creating departments independently...
     Department* CSE_Dept=new Department("Computer Science & Engineering",50,"Prof.Dibyahash Bordoloi");
     Department* Math_Dept=new Department("Mathematics",30, "Dr.Neeraj Dhiman");
-    // Creating university
     University uni("Graphic Era Hill University");
-    // Aggregating departments into the university
     uni.addDepartment(CSE_Dept);
     uni.addDepartment(Math_Dept);
-    // Display all departments in the university
     uni.displayDepartments();
-    // Departments exist independently, so we delete them manually
     delete CSE_Dept;
     delete Math_Dept;
     cout<<"\n****************************************************************************"<<endl;

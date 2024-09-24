@@ -45,7 +45,6 @@ public:
     }
 };
 int main(){
-    //Creating a FlyingCar object with specific attributes(parameter)...
     FlyingCar myFlyingCar(4,5000,300,75);//(wheels,altiude,speed,fuel)...
     // Display FlyingCar details
     myFlyingCar.display();
