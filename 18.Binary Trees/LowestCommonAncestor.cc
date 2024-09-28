@@ -64,5 +64,6 @@ int main(){
     Node* root=BulidTree(nodes);
     int n1=4,n2=5;
     cout<<LCA(root,n1,n2);
+
     return 0;
 }
