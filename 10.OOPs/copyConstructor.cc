@@ -27,7 +27,8 @@ class Car{
 int main(){
     Car c0;
     Car c1("Venue","White");
-    Car c2(c1);///copying c1 to c2
+    Car c2(c1);///copying c1 to 
+    Car c2=c1;
 
 
     cout<<c0.name<<endl;
@@ -35,7 +36,7 @@ int main(){
 
     cout<<c1.name<<endl;
     cout<<c1.color<<endl;
-
+    // c2.name="satya";
     cout<<c2.name<<endl;
     cout<<c2.color<<endl;
     return 0;
