@@ -62,8 +62,18 @@ node* delNode(node* root,int val){
             return NULL;
         }
         //case 2:if node to be delete has one child...
-        if(root->left==NULL || root->right==NULL){
-            return root->left==NULL? root->right:root->left;///agar left null hai tho return right node & viceversa..
+        // if(root->left==NULL || root->right==NULL){
+        //     return root->left==NULL? root->right:root->left;///agar left null hai tho return right node & viceversa..
+        // }
+        if (root->left == NULL) {
+            node* temp = root->right;
+            delete root;
+            return temp;
+        }
+        else if (root->right == NULL) {
+            node* temp = root->left;
+            delete root;
+            return temp;
         }
         //case 3: Two children
         node* IS=getInorderSucessor(root->right);//inordersuceessor left most node in right subtree...
@@ -71,17 +81,16 @@ node* delNode(node* root,int val){
         root->data=IS->data;
         //delete the IS node...
         root->right=delNode(root->right,IS->data);
-        return root;
     }
-    return NULL;//never hit this case..
+    return root;
 }
 int main(){
     int arr[9]={8,5,3,1,4,6,10,11,14};
     node* root=BulidBST(arr,sizeof(arr)/sizeof(arr[0]));
     cout<<"Intial tree:";
     inorder(root);
-    root=delNode(root,4);
     cout<<"\nAfter deletion tree:";
+    root=delNode(root,4);
     inorder(root);
     return 0;
 }
