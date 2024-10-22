@@ -48,3 +48,38 @@ int main(){
     NearByCar(pos,k);
     return 0;
 }
+
+/*
+#include<iostream>
+#include<vector>
+#include<queue>
+#include<string>
+#include<utility>
+using namespace std;
+struct comparePair{
+    bool operator()(pair<int,int>&p1,pair<int,int>&p2){
+        return p1.second > p2.second;//min heap
+    }
+};
+void NearByCar(vector<pair<int,int>>pos,int k){
+    priority_queue<pair<int,int>,vector<pair<int,int>>,comparePair>pq;//(idx , distSq)
+    for(int i=0;i<pos.size();i++){
+        int distSq= (pos[i].first * pos[i].first) +(pos[i].second * pos[i].second);
+        pq.push(make_pair(i,distSq));
+    }
+    for(int i=0;i<k;i++){
+        cout<<"Cars: c"<<pq.top().first+1<<endl;
+        pq.pop();
+    }
+}
+int main(){
+    vector<pair<int,int>>pos; //coordinate(x,y)
+    pos.push_back(make_pair(3,3));//c1
+    pos.push_back(make_pair(5,-1));//c2
+    pos.push_back(make_pair(-2,4));//c3
+    pos.push_back(make_pair(1,1));//c4
+    int k=2;
+    NearByCar(pos,k);
+    return 0;
+}
+*/
