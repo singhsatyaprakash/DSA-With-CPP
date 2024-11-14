@@ -51,10 +51,11 @@ int main(){
     string cardnum;
     cout<<"Enter card number: ";
     getline(cin,cardnum);
-    cout<<"   MENU:"<<endl;
+    cout<<"MENU:"<<endl;
     cout<<"Press[1] for MasterCard."<<endl;
     cout<<"Press[2] for Visa."<<endl;
     cout<<"Press[3] for American Express."<<endl;
+    cout<<"Press[0] for exit."<<endl;
     int n;//for option choose..
     do{
         cout<<"Choice:";
@@ -83,7 +84,7 @@ int main(){
             cout<<"Invalid choice."<<endl;
         }    
     }while(n!=0);
-    cout<<"****************************************************************************"<<endl;
+    cout<<"\n****************************************************************************"<<endl;
     cout<<"Prepared and Executed By:Satya Prakash Singh  CSE3(A1)  ClassRollNo:61"<<endl;
     cout<<"****************************************************************************"<<endl;
     return 0;
