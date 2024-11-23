@@ -1,6 +1,6 @@
 <h1>PROBLEM SOLVING BY C++ LANGUAGE</h1>
 All topic of c++ is covered.<br>
-This Repo contains all data structure concept, question solution in chapterwise fromat.
+This Repo contains all data structure concept, question solution in chapterwise format.
 <br>
 Keep your study in order of folder numbering.<br>
 ~kingofmidgard<br>
