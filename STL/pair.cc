@@ -16,5 +16,15 @@ using namespace std;
     pair<int,int>a;
     // pair<int,string>a;
     cout<<a.first<<" "<<a.second<<endl;
+
+    //swaping data type must be same
+    pair<int,int>x={1,2};
+    pair<int,int>z={3,4};
+    x.swap(z);
+    cout<<x.first<<" "<<x.second<<endl;
+
+    //array with pair
+    pair<int,int>arr[]={{1,2},{3,4}};
+    cout<<arr[1].first<<endl;
     return 0;
- }
+}

@@ -21,8 +21,8 @@ bool isAnagram(string str1,string str2){
             return false;
         }
         m[tolower(str2[i])]--;
-        if(m[str2[i]]==0){//if frequecey 0 delete that key..
-            m.erase(str2[i]);
+        if(m[tolower(str2[i])]==0){//if frequecey 0 delete that key..
+            m.erase(tolower(str2[i]));
         }
     }
     return m.size()==0;

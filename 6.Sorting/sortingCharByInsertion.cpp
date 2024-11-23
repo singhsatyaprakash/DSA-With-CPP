@@ -24,7 +24,7 @@ int main(){
             swap(arr[prev],arr[prev+1]);
             prev--;
         }
-        }
+    }
     cout<<"Sorted array:"<<endl;
        for(int i=0;i<n;i++){ 
         cout<<arr[i]<<" ";

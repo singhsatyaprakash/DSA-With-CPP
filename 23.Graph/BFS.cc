@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 #include<list>
+#include<queue>
 using namespace std;
 class Graph{
     int V; //Count of vertices
@@ -24,17 +25,36 @@ class Graph{
             cout<<endl;
         }
     }
+    void BFS(){
+        queue<int>q;
+        vector<bool>vis(V,false);
+        //choosing starting point
+        q.push(0);
+        vis[0]=true;
+        while(!q.empty()){
+            int curr=q.front();
+            cout<<curr<<" ";
+            q.pop();
+            //accesing the neghibour of curr node;
+            list<int>neigbours=l[curr];
+            for(int it:neigbours){
+                if(!vis[it]){//not visited
+                    q.push(it);//add to queue
+                    vis[it]=true;//and marked as visited
+                }
+            }
+        }
+    }
 };
 int main(){
-    Graph graph(7);//undirected graph
+    Graph graph(5);//undirected graph
     graph.addEdge(0,1);
-    graph.addEdge(0,2);
+    graph.addEdge(1,2);
     graph.addEdge(1,3);
+    graph.addEdge(2,3);
     graph.addEdge(2,4);
-    graph.addEdge(3,4);
-    graph.addEdge(3,5);
-    graph.addEdge(4,5);
-    graph.addEdge(5,6);
     graph.print();
+    cout<<"BFS Travesal:  ";
+    graph.BFS();
     return 0;
 }

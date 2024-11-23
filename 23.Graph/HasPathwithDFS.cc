@@ -14,16 +14,26 @@ class Graph{
         l[u].push_back(v);
         l[v].push_back(u);
     }
-    void print(){
-        for(int u=0;u<V;u++){
-             list<int> neigbours=l[u];
-            cout<<u<<":";
-            for(int v: neigbours){
-                cout<<v<<" "; 
-            }
-            cout<<endl;
+    bool hasPathHelper(int src,int dest,vector<bool>&vis){
+        if(src==dest){
+            return true;
         }
+        vis[src]=true;
+        list<int>neghibour=l[src];
+        for(int v: neghibour){
+            if(!vis[v]){
+                if(hasPathHelper(v,dest,vis)){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
+    bool hasPath(int src,int dest){
+        vector<bool>vis(V,false);//not to get stuck in loop
+        return hasPathHelper(src,dest,vis);
+    }
+
 };
 int main(){
     Graph graph(7);//undirected graph
@@ -35,6 +45,6 @@ int main(){
     graph.addEdge(3,5);
     graph.addEdge(4,5);
     graph.addEdge(5,6);
-    graph.print();
+    cout<<graph.hasPath(0,6);//(src,dest)
     return 0;
 }

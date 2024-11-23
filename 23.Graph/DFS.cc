@@ -24,17 +24,32 @@ class Graph{
             cout<<endl;
         }
     }
+    void dfsHelper(int u,vector<bool>&vis){
+        vis[u]=true;
+        cout<<u<<" ";
+        //accesing 1st unvistied negibour and keep going
+        list<int>neghibour=l[u];
+        for(int v:neghibour){
+            if(!vis[v]){
+                dfsHelper(v,vis);
+            }
+        }
+    }
+    void DFS(){
+        vector<bool>vis(V,false);
+        dfsHelper(0,vis);
+        cout<<endl;
+    }
 };
 int main(){
-    Graph graph(7);//undirected graph
+    Graph graph(5);//undirected graph
     graph.addEdge(0,1);
-    graph.addEdge(0,2);
+    graph.addEdge(1,2);
     graph.addEdge(1,3);
+    graph.addEdge(2,3);
     graph.addEdge(2,4);
-    graph.addEdge(3,4);
-    graph.addEdge(3,5);
-    graph.addEdge(4,5);
-    graph.addEdge(5,6);
     graph.print();
+    cout<<"DFS traversal: ";
+    graph.DFS();
     return 0;
 }

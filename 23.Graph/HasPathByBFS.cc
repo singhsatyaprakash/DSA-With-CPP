@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 #include<list>
+#include<queue>
 using namespace std;
 class Graph{
     int V; //Count of vertices
@@ -14,15 +15,26 @@ class Graph{
         l[u].push_back(v);
         l[v].push_back(u);
     }
-    void print(){
-        for(int u=0;u<V;u++){
-             list<int> neigbours=l[u];
-            cout<<u<<":";
-            for(int v: neigbours){
-                cout<<v<<" "; 
+    bool hasPath(int src,int dest){
+        queue<int>q;
+        vector<bool>vis(V,false);
+        vis[src]=true;
+        q.push(src);
+        while(!q.empty()){
+            int curr=q.front();
+            if(curr==dest){
+                return true;
             }
-            cout<<endl;
+            q.pop();
+            list<int>neghibour=l[curr];
+            for(int v:neghibour){
+                if(!vis[v]){
+                    q.push(v);
+                    vis[v]=true;
+                }
+            }
         }
+        return false;
     }
 };
 int main(){
@@ -35,6 +47,7 @@ int main(){
     graph.addEdge(3,5);
     graph.addEdge(4,5);
     graph.addEdge(5,6);
-    graph.print();
+    cout<<graph.hasPath(0,6);//(src,dest)  //1
+    cout<<"\n"<<graph.hasPath(6,7);//(src,dest)  //0
     return 0;
 }
