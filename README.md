@@ -1,9 +1,10 @@
 <h1>PROBLEM SOLVING BY C++ LANGUAGE</h1>
-All topic of c++ is covered.<br>
-This Repo contains all data structure concept, question solution in chapterwise format.<br>
-Object Oriented Programming in C++.
-<br>
-Keep your study in order of folder numbering.<br>
+<ul>
+  <li>All topic of c++ is covered.</li>
+  <li>This Repo contains all data structure concept, question solution in chapterwise format.</li>
+  <li>Object Oriented Programming in C++.</li>
+  <li>Keep your study in order of folder numbering.</li>
+</ul>
 ~kingofmidgard<br>
 <h2>Data Structure & Algorithm</h2>
 <h4>in C++</h4>
