@@ -6,6 +6,10 @@
   <li>Keep your study in order of folder numbering.</li>
   <li>Standard Template Library (STL).</li>
 </ul>
+<level for id="contact">For any Query:</level>
+<a href="https://www.instagram.com/king_of_midgard_/" id="contact">
+
 ~kingofmidgard<br>
 <h2>Data Structure & Algorithm</h2>
 <h4>Enough for Placement Perspective</h4>
+
