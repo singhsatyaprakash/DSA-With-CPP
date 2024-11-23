@@ -8,4 +8,4 @@
 </ul>
 ~kingofmidgard<br>
 <h2>Data Structure & Algorithm</h2>
-<h4>in C++</h4>
+<h4>Enough for Placement Perspective</h4>
