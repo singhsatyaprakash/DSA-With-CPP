@@ -21,5 +21,8 @@ int main(){
     cout<<"File is copied from Source to desitnation."<<endl;
     inputFile.close();
     outputFile.close();
+    cout<<"\n****************************************************************************"<<endl;
+    cout<<"Prepared and Executed By:Satya Prakash Singh  CSE3(A1)  ClassRollNo:61"<<endl;
+    cout<<"****************************************************************************"<<endl;
     return 0;
 }

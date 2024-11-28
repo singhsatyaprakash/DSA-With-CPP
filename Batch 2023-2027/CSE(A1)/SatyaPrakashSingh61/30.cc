@@ -36,5 +36,8 @@ int main(){
     cout<<"Total words:"<<wordCount<<endl;
     cout<<"Total lines:"<<lineCount<<endl;
     inputFile.close();
+    cout<<"\n****************************************************************************"<<endl;
+    cout<<"Prepared and Executed By:Satya Prakash Singh  CSE3(A1)  ClassRollNo:61"<<endl;
+    cout<<"****************************************************************************"<<endl;
     return 0;
 }
