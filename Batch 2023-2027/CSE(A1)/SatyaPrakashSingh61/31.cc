@@ -1,168 +1,169 @@
 #include <iostream> 
 #include <fstream> 
-#include <sstream> 
-#include <string> 
+#include <cstring> 
 using namespace std; 
- 
 class Student { 
-private: 
     int rollNumber; 
-    string name; 
+    char name[50]; 
     int age; 
-    string course; 
- 
+    char course[50]; 
 public: 
-    // Method to input student details 
-    void inputStudentDetails() { 
+    void getDetails() { 
         cout << "Enter Roll Number: "; 
         cin >> rollNumber; 
         cin.ignore(); 
         cout << "Enter Name: "; 
-        getline(cin, name); 
+        cin.getline(name,50); 
         cout << "Enter Age: "; 
         cin >> age; 
         cin.ignore(); 
         cout << "Enter Course: "; 
-        getline(cin, course); 
+        cin.getline(course,50); 
+        } 
+ 
+    void showDetails() const { 
+        cout << "Roll Number: " << rollNumber << endl; 
+        cout << "Name: " << name << endl; 
+        cout << "Age: " << age << endl; 
+        cout << "Course: " << course << endl; 
     } 
  
-    // Method to display student details 
-    void displayStudentDetails() const { 
-        cout << "Roll Number: " << rollNumber << "\nName: " << name 
-             << "\nAge: " << age << "\nCourse: " << course << "\n"; 
+    int getRollNumber() const { 
+        return rollNumber; 
     } 
  
-    // Save student to file 
-    void saveToFile() const { 
-        ofstream outFile("students.txt", ios::app); 
-        if (outFile.is_open()) { 
-            outFile << rollNumber << " " << name << " " << age << " " << course << endl; 
-            outFile.close(); 
-            cout << "Student record added successfully.\n"; 
-        } else { 
-        cout << "Error: Unable to open file.\n"; 
-        } 
+    void writeToFile(fstream &file) const { 
+        file.write((const char*) this, sizeof(Student)); 
     } 
-// Static method to search for a student 
-    static void searchStudent(int rollNo) { 
-        ifstream inFile("students.txt"); 
-        string line; 
-        bool found = false; 
-        if (inFile.is_open()) { 
-            while (getline(inFile, line)) { 
-                Student s; 
-                stringstream ss(line); 
-                ss >> s.rollNumber >> ws; 
-                getline(ss, s.name, ' '); 
-                ss >> s.age >> ws; 
-                getline(ss, s.course); 
-                if (s.rollNumber == rollNo) { 
-                    cout << "\nRecord Found:\n"; 
-                    s.displayStudentDetails(); 
-                    found = true; 
-                    break; 
-                } 
-            } 
-            inFile.close(); 
-            if (!found) { 
-                cout << "Record not found.\n"; 
-            } 
-        } else { 
-        cout << "Error: Unable to open file.\n"; 
-        } 
-    } 
-    // Static method to delete a student 
-    static void deleteStudent(int rollNo) { 
-        ifstream inFile("students.txt"); 
-        ofstream tempFile("temp.txt"); 
-        string line; 
-        bool found = false; 
-        if (inFile.is_open() && tempFile.is_open()) { 
-            while (getline(inFile, line)) { 
-                Student s; 
-                stringstream ss(line); 
-                ss >> s.rollNumber >> ws; 
-                getline(ss, s.name, ' '); 
-                ss >> s.age >> ws; 
-                getline(ss, s.course); 
-                if (s.rollNumber != rollNo) { 
-                    tempFile << line << endl; 
-                } else { 
-                    found = true; 
-                } 
-            } 
-            inFile.close(); 
-            tempFile.close(); 
-            remove("students.txt"); 
-            rename("temp.txt", "students.txt"); 
-            if (found) { 
-                cout << "Record deleted successfully.\n"; 
-            } else { 
-                cout << "Record not found.\n"; 
-            } 
-        } else { 
-        cout << "Error: Unable to open file.\n"; 
-        } 
-    } 
-    // Static method to display all students 
-    static void displayAllStudents() { 
-        ifstream inFile("students.txt"); 
-        string line; 
-        if (inFile.is_open()) { 
-            cout << "\nAll Student Records:\n"; 
-            while (getline(inFile, line)) { 
-                Student s; 
-                stringstream ss(line); 
-                ss >> s.rollNumber >> ws; 
-                getline(ss, s.name, ' '); 
-                ss >> s.age >> ws; 
-                getline(ss, s.course); 
-                s.displayStudentDetails(); 
-                cout << endl; 
-            } 
-            inFile.close(); 
-        } else { 
-            cout << "Error: Unable to open file.\n"; 
-        } 
+ 
+    void readFromFile(fstream &file) { 
+ 
+ 
+        file.read((char*) this, sizeof(Student)); 
     } 
 }; 
+ 
+void addStudent() { 
+    fstream file("students.dat", ios::out | ios::app | ios::binary); 
+    if (!file) { 
+        cerr << "Error opening file." << endl; 
+        return; 
+    } 
+    Student student; 
+    student.getDetails(); 
+    student.writeToFile(file); 
+    file.close(); 
+    cout << "Student added successfully." << endl; 
+} 
+ 
+void searchStudent() { 
+    fstream file("students.dat", ios::in | ios::binary); 
+    if (!file) { 
+        cerr << "Error opening file." << endl; 
+        return; 
+    } 
+    int rollNumber; 
+    cout << "Enter Roll Number to search: "; 
+    cin >> rollNumber; 
+ 
+    Student student; 
+    bool found = false; 
+    while (file.read((char*) (&student), sizeof(Student))) { 
+        if (student.getRollNumber() == rollNumber) { 
+            cout << "Record found:" << endl; 
+            student.showDetails(); 
+            found = true; 
+            break; 
+        } 
+    } 
+    file.close(); 
+    if (!found) { 
+        cout << "Record not found." << endl; 
+    } 
+} 
+ 
+void deleteStudent() { 
+    fstream file("students.dat", ios::in | ios::binary); 
+    fstream tempFile("temp.dat", ios::out | ios::binary); 
+    if (!file || !tempFile) { 
+        cerr << "Error opening file." << endl; 
+        return; 
+    } 
+    int rollNumber; 
+    cout << "Enter Roll Number to delete: "; 
+    cin >> rollNumber; 
+ 
+    Student student; 
+    bool found = false; 
+    while (file.read((char*) (&student), sizeof(Student)))  
+   { 
+        if (student.getRollNumber() == rollNumber) { 
+            found = true; 
+        } else { 
+            student.writeToFile(tempFile); 
+        } 
+    } 
+    file.close(); 
+    tempFile.close(); 
+ 
+    remove("students.dat"); 
+    rename("temp.dat", "students.dat"); 
+ 
+    if (found) { 
+        cout << "Record deleted successfully." << endl; 
+    } else { 
+        cout << "Record not found." << endl; 
+    } 
+} 
+void displayAllStudents() { 
+    fstream file("students.dat", ios::in | ios::binary); 
+    if (!file) { 
+        cerr << "Error opening file." << endl; 
+        return; 
+    } 
+    Student student; 
+    cout << "Student Records:" << endl; 
+    while (file.read((char*)(&student), sizeof(Student))) { 
+        student.showDetails(); 
+        cout << "----------------------" << endl; 
+    } 
+    file.close(); 
+} 
 int main() { 
     int choice; 
+        cout << "\nMenu:\n"; 
+        cout << "1. Add Student\n"; 
+        cout << "2. Search Student\n"; 
+        cout << "3. Delete Student\n"; 
+        cout << "4. Display All Students\n"; 
+        cout << "0. Exit\n"; 
     do { 
-        cout << "\n--- Student Record Management System ---\n"; 
-        cout << "1. Add Student\n2. Search Student\n3. Delete Student\n4. Display All Students\n5.Exit\n"; 
-        cout << "Enter your choice: "; 
+        cout << "Choice: "; 
         cin >> choice; 
+        cin.ignore(); 
+ 
         switch (choice) { 
-            case 1: { 
-                Student s; 
-                s.inputStudentDetails(); 
-                s.saveToFile(); 
+            case 1: 
+                addStudent(); 
                 break; 
-            } 
-            case 2: { 
-                int rollNo; 
-                cout << "Enter Roll Number to Search: "; 
-                cin >> rollNo; 
-                Student::searchStudent(rollNo); 
+            case 2: 
+                searchStudent(); 
                 break; 
-            } 
-            case 3: { 
-                int rollNo; 
-                cout << "Enter Roll Number to Delete: "; 
-                cin >> rollNo; 
-                Student::deleteStudent(rollNo); 
+            case 3: 
+                deleteStudent(); 
                 break; 
-            } 
             case 4: 
-                Student::displayAllStudents(); 
+                displayAllStudents(); 
                 break; 
-            case 5: 
-                cout << "Exiting the program.\n"; 
+            case 0: 
+                cout << "Exiting program." << endl; 
                 break; 
             default: 
-                cout << "Invalid choice! Please try again.\n"; 
+                cout << "Invalid choice. Please try again." << endl; 
         } 
-    } while (choice != 5); 
+    } while (choice != 0); 
+    cout<<"\n****************************************************************************"<<endl;
+    cout<<"Prepared and Executed By:Satya Prakash Singh  CSE3(A1)  ClassRollNo:61"<<endl;
+    cout<<"****************************************************************************"<<endl;
     return 0; 
-    } 
+} 
