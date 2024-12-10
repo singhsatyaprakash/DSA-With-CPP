@@ -1,0 +1,2 @@
+cd "c:\Users\satya\CPP\File Handling\" ; if ($?) { g++ fileWithClasses1.cc -o fileWithClasses1 } ; 
+cd "c:\Users\satya\CPP\File Handling\" ; if ($?) { g++ fileWithClasses1.cc -o fileWithClasses1 } ; 
