@@ -1,6 +1,6 @@
 <h1>PROBLEM SOLVING BY C++ LANGUAGE</h1>
 <level for="101">To open in vscode typo in url</level>
-<h2 id=101>https://github1s.com/singhsatyaprakash/DSA-With-CPP</h2>
+<h3 id=101>https://github1s.com/singhsatyaprakash/DSA-With-CPP</h3>
 <ul>
   <li>All topic of c++ is covered.</li>
   <li>This Repo contains all data structure concept, question solution in chapterwise format.</li>
