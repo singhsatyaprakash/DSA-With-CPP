@@ -28,7 +28,7 @@ void heapSort(vector<int>&arr){
     //step2:taking elements to correct position..asscending
     for(int i=n-1;i>=0;i--){
         swap(arr[0],arr[i]);
-        heapify(0,arr,i);
+        heapify(0,arr,i); //size of unsorted is reducing in each step..
     }
 }
 int main(){

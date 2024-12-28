@@ -3,7 +3,7 @@ using namespace std;
 class Parent{
 public:
     void show(){
-        cout<<"Prent class show...\n";
+        cout<<"Parent class show...\n";
     }
 };
 class Child:public Parent{
@@ -14,7 +14,9 @@ public:
 };
 
 int main(){
-    Child child1;
-    child1.show();
+    // Child child1;
+    // child1.show();
+    Parent p1;
+    p1.show();
     return 0;
 }
