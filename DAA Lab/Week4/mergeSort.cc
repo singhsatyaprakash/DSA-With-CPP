@@ -40,7 +40,7 @@ void mergeSort(int arr[],int si,int ei){
 }
 int main(){
     int n;
-    cout<<"Enter the size of matrix:";
+    cout<<"Enter n:";
     cin>>n;
     int arr[n];
     cout<<"Enter elements of array:"<<endl;
