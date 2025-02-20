@@ -1,3 +1,6 @@
+/*Given an already sorted array of positive integers, design an algorithm and implement it using a
+ program to find whether given key element is present in the array or not. Also, find total number
+ of comparisons for each input case. (Time Complexity = O(nlogn), where n is the size of input).*/
 #include<iostream>
 #include<vector>
 #include<algorithm>
@@ -39,6 +42,8 @@ int main(){
     else{
         cout<<"Not present."<<endl;
     }
+    cout<<"\n****************************************************************************"<<endl;
+    cout<<"Prepared and Executed By:Satya Prakash Singh  CSE3(A1)  ClassRollNo:61"<<endl;
+    cout<<"****************************************************************************"<<endl;
     return 0;
-
 }

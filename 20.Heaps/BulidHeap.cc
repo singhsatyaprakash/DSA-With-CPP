@@ -8,8 +8,8 @@ public:
         //1.insert
         vec.push_back(val);
         //2.Fix heap
-        int x=vec.size()-1;//inex of child..
-        int parI=(x-2)/2;
+        int x=vec.size()-1;//index of child..
+        int parI=(x-2)/2;//?
         while(parI>=0 && vec[x]>vec[parI]){
             swap(vec[parI],vec[x]);
             x=parI;
