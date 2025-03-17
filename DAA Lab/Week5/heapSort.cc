@@ -1,7 +1,6 @@
 #include<iostream>
 #include<vector>
 using namespace std;
-
 void heapify(int arr[],int n,int i){
     int parent=i;
     int left=2*i;
@@ -42,5 +41,8 @@ int main(){
     for(int i=1;i<=n;i++){
         cout<<arr[i]<<" ";
     }
+    cout<<"\n****************************************************************************"<<endl;
+    cout<<"Prepared and Executed By:Satya Prakash Singh  CSE4(A1)  ClassRollNo:61"<<endl;
+    cout<<"****************************************************************************"<<endl;
     return 0;
 }

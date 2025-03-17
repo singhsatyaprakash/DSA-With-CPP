@@ -9,11 +9,11 @@ public:
         vec.push_back(val);
         //2.Fix heap
         int x=vec.size()-1;//index of child..
-        int parI=(x-2)/2;//?
+        int parI=(x-1)/2;
         while(parI>=0 && vec[x]>vec[parI]){
             swap(vec[parI],vec[x]);
             x=parI;
-            parI=(x-2)/2;
+            parI=(x-1)/2;
         }
     }
     void heapify(int i){
@@ -29,9 +29,9 @@ public:
         if(r<vec.size() && vec[r]>vec[maxIdx]){
             maxIdx=r;
         }
-        swap(vec[i],vec[maxIdx]);
         //insure that swap is done with child node..
         if(maxIdx != i){
+            swap(vec[i],vec[maxIdx]);
             heapify(maxIdx);
         }
     }

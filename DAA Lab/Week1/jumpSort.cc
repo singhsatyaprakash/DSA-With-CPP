@@ -9,7 +9,7 @@
 #include<vector>
 #include<algorithm>
 using namespace std;
-int linearSearch(vector<int>arr,int si,int ei,int key){
+int linearSearch(vector<int>&arr,int si,int ei,int key){
     for(int i=si;i<=ei;i++){
         if(arr[i]==key){
             return i;
@@ -17,11 +17,12 @@ int linearSearch(vector<int>arr,int si,int ei,int key){
     }
     return -1;
 }
-int jumpsort(vector<int>arr,int key){
-    int window=sqrt(arr.size());
+int jumpSearch(vector<int>&arr,int key){
+    int n=arr.size();
+    int window=sqrt(n);
     int prev=0;
     int next=window-1;
-    while(next<arr.size()){
+    while(next<n){
         if(arr[next]==key){
             return next;
         }
@@ -29,9 +30,9 @@ int jumpsort(vector<int>arr,int key){
             return linearSearch(arr,prev,next,key);
         }
         prev=next+1;
-        next=next+window;
+        next=next+window; 
     }
-    return linearSearch(arr,prev,arr.size()-1,key);
+    return linearSearch(arr,prev,n-1,key);
 }
 int main(){
     int n,val;
@@ -46,8 +47,8 @@ int main(){
     int key;
     cout<<"Enter key:";
     cin>>key;
-    sort(arr.begin(),arr.end());
-    int idx=jumpsort(arr,key);
+    //sort(arr.begin(),arr.end());
+    int idx=jumpSearch(arr,key);
     if(idx==-1){
         cout<<"Not found"<<endl;
     }else{

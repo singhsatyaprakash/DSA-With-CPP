@@ -1,3 +1,6 @@
+/*You have been given two sorted integer arrays of size m and n. Design an algorithm and
+ implement it using a program to find list of elements which are common to both. (Time
+ Complexity = O(m+n))*/
 #include<iostream>
 #include<vector>
 using namespace std;
@@ -31,7 +34,7 @@ int main(){
     for(int i=0;i<m;i++){
         cin>>arr1[i];
     }
-    cout<<"Enter size of 2d array:";
+    cout<<"Enter size of 2nd array:";
     cin>>n;
     int arr2[n];
     cout<<"Enter element:";
@@ -39,5 +42,8 @@ int main(){
         cin>>arr2[i];
     }
     intersection(arr1,arr2,m,n);
+    cout<<"\n****************************************************************************"<<endl;
+    cout<<"Prepared and Executed By:Satya Prakash Singh  CSE4(A1)  ClassRollNo:61"<<endl;
+    cout<<"****************************************************************************"<<endl;
     return 0;
 }

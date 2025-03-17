@@ -1,35 +1,35 @@
+/*. Given an unsorted array of positive integers, design an algorithm and implement it using a
+ program to find whether there are any duplicate elements in the array or not. (use sorting) (Time
+ Complexity = O(n log n))
+*/
 #include<iostream>
 #include<vector>
+#include<algorithm>
 using namespace std;
-void bubbleSort(vector<int>&arr){
+bool isDuplicate(vector<int>&arr){
     int n=arr.size();
-    int comparsion=0,swapcount=0;
-    for(int i=0;i<n-1;i++){
-        for(int j=0;j<n-1-i;j++){
-            comparsion++;
-            if(arr[j]>arr[j+1]){
-                swapcount++;
-                swap(arr[j],arr[j+1]);
-            }
+    sort(arr.begin(),arr.end());
+    for(int i=1;i<n;i++){
+        if(arr[i-1]==arr[i]){
+            return true;
         }
     }
-    cout<<"Comparsion = "<<comparsion<<endl;
-    cout<<"Swap = "<<swapcount<<endl;
+    return false;
 }
 int main(){
     int n,val;
     cout<<"Enter n:";
     cin>>n;
     vector<int>arr;
-    cout<<"Enter the elements of array:";
     for(int i=0;i<n;i++){
         cin>>val;
         arr.push_back(val);
     }
-    bubbleSort(arr);
-    cout<<"Sorted array:"<<endl;
-    for(int i=0;i<arr.size();i++){
-        cout<<arr[i]<<" ";
+    if(isDuplicate(arr)){
+        cout<<"YES"<<endl;
+    }
+    else{
+        cout<<"NO"<<endl;
     }
     cout<<"\n****************************************************************************"<<endl;
     cout<<"Prepared and Executed By:Satya Prakash Singh  CSE3(A1)  ClassRollNo:61"<<endl;

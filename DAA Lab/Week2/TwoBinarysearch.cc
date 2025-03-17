@@ -37,6 +37,9 @@ int searchCopy(vector<int>arr,int key){
             si=mid+1;
         }
     }
+    if(low_idx==-1){
+        return 0;
+    }
     return (high_idx-low_idx)+1;
 }
 int main(){
@@ -59,5 +62,8 @@ int main(){
     }else{
         cout<<"Total "<<copies<<" of "<<key<<" found."<<endl;
     }
+    cout<<"\n****************************************************************************"<<endl;
+    cout<<"Prepared and Executed By:Satya Prakash Singh  CSE3(A1)  ClassRollNo:61"<<endl;
+    cout<<"****************************************************************************"<<endl;
     return 0;
 }

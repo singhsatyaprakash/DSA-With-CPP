@@ -1,3 +1,6 @@
+/*Given an unsorted array of integers, design an algorithm and implement it using a program to
+ find whether two elements exist such that their sum is equal to the given key element. (Time
+ Complexity = O(n log n))*/
 #include<iostream>
 #include<vector>
 #include<algorithm>
@@ -37,5 +40,8 @@ int main(){
     cout<<"Enter key:";
     cin>>key;
     twoSum(arr,key);
+    cout<<"\n****************************************************************************"<<endl;
+    cout<<"Prepared and Executed By:Satya Prakash Singh  CSE4(A1)  ClassRollNo:61"<<endl;
+    cout<<"****************************************************************************"<<endl;
     return 0;
 }

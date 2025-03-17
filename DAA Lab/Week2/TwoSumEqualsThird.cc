@@ -11,7 +11,8 @@ void twoSumEqualsThird(vector<int>arr){
         int i=0,j=k-1;
         while(i<j){
             if(arr[i]+arr[j]==arr[k]){
-                cout<<i+1<<" "<<j+1<<" "<<k+1<<endl;
+                cout<<"Sequence:";
+                cout<<i+1<<", "<<j+1<<", "<<k+1<<endl;
                 flag=1;
                 break;
             }
@@ -39,5 +40,8 @@ int main(){
     }
     sort(arr.begin(),arr.end());
     twoSumEqualsThird(arr);
+    cout<<"\n****************************************************************************"<<endl;
+    cout<<"Prepared and Executed By:Satya Prakash Singh  CSE3(A1)  ClassRollNo:61"<<endl;
+    cout<<"****************************************************************************"<<endl;
     return 0;
 }

@@ -1,3 +1,7 @@
+/*Given an unsorted array of integers, design an algorithm and implement it using a program to
+ sort an array of elements by dividing the array into two subarrays and combining these subarrays
+ after sorting each one of them. Your program should also find number of comparisons and
+ inversions during sorting the array*/
 #include<iostream>
 #include<vector>
 using namespace std;
@@ -49,5 +53,8 @@ int main(){
     }
     mergeSort(arr,0,n-1);
     printSorted(arr,n);
+    cout<<"\n****************************************************************************"<<endl;
+    cout<<"Prepared and Executed By:Satya Prakash Singh  CSE3(A1)  ClassRollNo:61"<<endl;
+    cout<<"****************************************************************************"<<endl;
     return 0;
 }

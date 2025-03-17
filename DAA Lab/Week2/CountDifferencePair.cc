@@ -11,8 +11,6 @@ int CountDifferencePair(vector<int>arr,int k){
         m[arr[i]]++;
     }
     int count=0;
-
-    
     for(auto p:m){
         if( k && m.count(p.first+k) || k==0 && p.second>1){ //unique pair
             count++;
@@ -34,5 +32,8 @@ int main(){
     cin>>k;
     int res=CountDifferencePair(arr,k);
     cout<<"Total pairs are:"<<res<<endl;
+    cout<<"\n****************************************************************************"<<endl;
+    cout<<"Prepared and Executed By:Satya Prakash Singh  CSE3(A1)  ClassRollNo:61"<<endl;
+    cout<<"****************************************************************************"<<endl;
     return 0;
 }

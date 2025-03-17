@@ -1,3 +1,6 @@
+/*Given an unsorted array of integers, design an algorithm and implement a program to sort this
+ array using selection sort. Your program should also find number of comparisons and number of
+ swaps required.*/
 #include<iostream>
 #include<vector>
 using namespace std;
@@ -35,5 +38,8 @@ int main(){
     for(int i=0;i<arr.size();i++){
         cout<<arr[i]<<" ";
     }
+    cout<<"\n****************************************************************************"<<endl;
+    cout<<"Prepared and Executed By:Satya Prakash Singh  CSE3(A1)  ClassRollNo:61"<<endl;
+    cout<<"****************************************************************************"<<endl;
     return 0;
 }

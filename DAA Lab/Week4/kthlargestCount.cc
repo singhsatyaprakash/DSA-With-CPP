@@ -1,3 +1,5 @@
+/*Given an unsorted array of integers, design an algorithm and implement it using a program to
+ find Kth smallest or largest element in the array. (Worst case Time Complexity = O(n))*/
 #include<iostream>
 #include<vector>
 #include<algorithm>
@@ -12,7 +14,7 @@ void kthLargest(vector<int>nums,int k){
         int idx=nums[i]-min;
         freq[idx]++;
     }
-    for(int i=1;i<n;i++){
+    for(int i=1;i<size;i++){
         freq[i]=freq[i-1]+freq[i];
     }
     int temp[n];
@@ -36,5 +38,8 @@ int main(){
     cout<<"Enter k:";
     cin>>k;
     kthLargest(nums,k);
+    cout<<"\n****************************************************************************"<<endl;
+    cout<<"Prepared and Executed By:Satya Prakash Singh  CSE3(A1)  ClassRollNo:61"<<endl;
+    cout<<"****************************************************************************"<<endl;
     return 0;
 }

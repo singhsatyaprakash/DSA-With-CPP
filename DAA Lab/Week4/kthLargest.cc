@@ -26,5 +26,8 @@ int main(){
     cin>>k;
     int res=kthLargestElement(nums,k);
     cout<<k<<"th largest element is:"<<res;
+    cout<<"\n****************************************************************************"<<endl;
+    cout<<"Prepared and Executed By:Satya Prakash Singh  CSE3(A1)  ClassRollNo:61"<<endl;
+    cout<<"****************************************************************************"<<endl;
     return 0;
 }

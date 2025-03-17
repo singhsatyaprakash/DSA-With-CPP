@@ -20,7 +20,7 @@ class Tries{
     void insert(string key){
         Node* temp=root;
         for(int i=0;i<key.size();i++){
-            if(temp->children.count(key[i])==0){//if not exist create therir children node
+            if(temp->children.count(key[i])==0){//if not exist create their children node
                 temp->children[key[i]]= new Node();
             }
             temp=temp->children[key[i]];//temp ko child par la dege.
@@ -49,4 +49,5 @@ int main(){
     cout<<"\nfound:"<<trie.search("their");
     cout<<"\nfound:"<<trie.search("theirs");
     return 0;
+    
 }
