@@ -37,12 +37,12 @@ void topView(Node* root){
         q.pop();
         Node* currNode=curr.first;
         int currHD=curr.second;
-        //chacking uniqueness is it in map or not..
-        if(m.count(currHD)==0){//not in mapp add it...
+        //checking uniqueness is it in map or not..
+        if(m.count(currHD)==0){//not in map add it...
             m[currHD]=currNode->data;
         }
-        if(m.count(currHD)){//to repalce top view node with bottom view.
-            m[currHD]=currNode->data;
+        if(m.count(currHD)){//to replace top view node with bottom view.(found)
+            m[currHD]=currNode->data; //overwrite...
         }
 
         if(currNode->left!=NULL){
