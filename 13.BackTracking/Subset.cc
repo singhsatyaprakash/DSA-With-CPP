@@ -20,3 +20,26 @@ int main(){
     printSubsets(str,subset);
     return 0; 
 }
+
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// void generateSubsets(string str, string current, int index) {
+//     if (index == str.length()) {
+//         cout << current << endl;
+//         return;
+//     }
+
+//     // Include the current character
+//     generateSubsets(str, current + str[index], index + 1);
+
+//     // Exclude the current character
+//     generateSubsets(str, current, index + 1);
+// }
+
+// int main() {
+//     string str = "aabcb";
+//     generateSubsets(str, "", 0);
+//     return 0;
+// }
