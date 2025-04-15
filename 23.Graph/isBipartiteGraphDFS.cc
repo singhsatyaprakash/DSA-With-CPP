@@ -1,45 +1,56 @@
 #include<iostream>
-#include<list>
-#include<queue>
+#include<vector>
 using namespace std;
-class Graph{
-    int V; //how many vertex graph has..
-    list<int>*l;
-    bool isdirected;
-    public:
-    Graph(int V,bool isdirected=false){
-        this->V=V;
-        l=new list<int>[V];
-        this->isdirected=isdirected;
-    }
-    void AddEdge(int u,int v){
-        l[u].push_back(v);
-        if(!isdirected){ //if not direct..
-            l[v].push_back(u);
-        }
-    }
-    void PrintGraph(){
-        for(int u=0;u<V;u++){
-             list<int> neigbours=l[u];
-            cout<<u<<":";
-            for(int v: neigbours){
-                cout<<v<<" "; 
+bool dfsCheck(vector<int>adj[],int src,vector<int>&color,int prevColor){
+    color[src]=prevColor;
+    for(auto it:adj[src]){
+        if(color[it]==-1){ //not visited...
+            if(dfsCheck(adj,it,color,!prevColor)==false){
+                return false;
             }
-            cout<<endl;
+        }
+        else if(color[it]==prevColor){
+            return false;
         }
     }
-    
-    
-
-};
+    return true;
+}
+bool isBipartite(vector<int>adj[],int V){
+    vector<int>color(V,-1);
+    for(int i=0;i<V;i++){
+        if(color[i]==-1){
+            if(dfsCheck(adj,i,color,0)==false){
+                return false;
+            }
+        }
+    }
+    return true;
+}
 int main(){
-    //Graph graph(5,true);//directed
-    Graph graph(5); //undirected
-    graph.AddEdge(0,1); //(src,dest)
-    graph.AddEdge(1,2);
-    graph.AddEdge(2,0);
-    graph.AddEdge(0,3);
-    graph.AddEdge(3,4);
-    graph.PrintGraph();
+    int V,E;
+    cout<<"Enter number of vertices and edges:";
+    cin>>V>>E;
+    vector<int>adj[V];//0-based
+    cout<<"Enter (u,v):"<<endl;
+    for(int i=0;i<E;i++){
+        int u,v;
+        cin>>u>>v;
+        adj[u].push_back(v);
+        //adj[v].push_back(u);
+    }
+    cout<<"Graph:"<<endl;
+    for(int i=0;i<V;i++){
+        cout<<i<<":";
+        for(auto j:adj[i]){
+            cout<<j<<" ";
+        }
+        cout<<endl;
+    }
+    if(isBipartite(adj,V)){
+        cout<<"Graph is Bipartite."<<endl;
+    }
+    else{
+        cout<<"Graph is not Bipartite."<<endl;
+    }
     return 0;
 }
