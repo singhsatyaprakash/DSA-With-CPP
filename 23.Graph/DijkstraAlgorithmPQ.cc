@@ -3,6 +3,9 @@
 #include<queue>
 
 using namespace std;
+//O(E*logV)
+//O(V*E*logV)
+//O(v*V^2*logV)...dense graph
 vector<int> dijkstraApply(vector<pair<int,int>>adj[],int n,int src){
     priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>>pq; //minheap....
     vector<int>dist(n,INT_MAX);

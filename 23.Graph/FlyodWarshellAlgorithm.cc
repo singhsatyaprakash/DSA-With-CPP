@@ -10,16 +10,16 @@ vector<vector<int>> flyodWarshell(int V,vector<vector<int>>&edges){
         int u=it[0],v=it[1],w=it[2];
         dist[u][v]=w;
     }
-    // for(int i=0;i<V;i++){
-    //     for(int j=0;j<V;j++){
-    //         if(dist[i][j]==INT_MAX){
-    //             cout<<"I ";
-    //             continue;
-    //         }
-    //         cout<<dist[i][j]<<" ";
-    //     }
-    //     cout<<endl;
-    // }
+    for(int i=0;i<V;i++){
+        for(int j=0;j<V;j++){
+            if(dist[i][j]==INT_MAX){
+                cout<<"I ";
+                continue;
+            }
+            cout<<dist[i][j]<<" ";
+        }
+        cout<<endl;
+    }
     // via FlyodWarshell go through each cell for each vertex...
     for(int k=0;k<V;k++){
         for(int i=0;i<V;i++){
@@ -37,18 +37,18 @@ vector<vector<int>> flyodWarshell(int V,vector<vector<int>>&edges){
         }
 
 
-        // cout<<"Via:"<<k<<endl;
-        // for(int i=0;i<V;i++){
-        //     for(int j=0;j<V;j++){
-        //         if(dist[i][j]==INT_MAX){
-        //             cout<<"I ";
-        //             continue;
-        //         }
-        //         cout<<dist[i][j]<<" ";
-        //     }
-        //     cout<<endl;
-        // }
-        // cout<<"----------------------------"<<endl;
+        cout<<"Via:"<<k<<endl;
+        for(int i=0;i<V;i++){
+            for(int j=0;j<V;j++){
+                if(dist[i][j]==INT_MAX){
+                    cout<<"I ";
+                    continue;
+                }
+                cout<<dist[i][j]<<" ";
+            }
+            cout<<endl;
+        }
+        cout<<"----------------------------"<<endl;
     }
 
     return dist;
@@ -63,6 +63,7 @@ int main(){
     for(int i=0;i<E;i++){
         cin>>u>>v>>w;
         edges.push_back({u,v,w});
+        edges.push_back({v,u,w});
     }
     vector<vector<int>>dist=flyodWarshell(V,edges);
 
