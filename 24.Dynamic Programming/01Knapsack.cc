@@ -12,6 +12,7 @@ int knapsackRec(vector<int>val,vector<int>wt,int W,int n){
         //include
         return max(itemVal+knapsackRec(val,wt,W-itemWt,n-1),knapsackRec(val,wt,W,n-1));
     }else{
+        //exclude
         return knapsackRec(val,wt,W,n-1);
     }
 }
@@ -59,10 +60,22 @@ int knapsackTab(vector<int>val,vector<int>Wt,int W,int n){
 }
 
 int main(){
-    vector<int>wt{2,5,1,3,4};
-    vector<int>val{15,14,10,45,30};
-    int W=7;//capacity of knapsack...
-    int n=val.size();
+    int n;
+    cout<<"Enter total items:";
+    cin>>n;
+    vector<int>wt(n);
+    vector<int>val(n);
+    cout<<"Enter weights:"<<endl;
+    for(int i=0;i<n;i++){
+        cin>>wt[i];
+    }
+    cout<<"Enter values:"<<endl;
+    for(int i=0;i<n;i++){
+        cin>>val[i];
+    }
+    int W;//capacity of knapsack...
+    cout<<"Enter capacity:";
+    cin>>W;
     cout<<"Recursion:\nMaxProfit:"<<knapsackRec(val,wt,W,n)<<endl;
     vector<vector<int>>dp(n+1,vector<int>(W+1,-1));
     cout<<"\nMemoization:"<<endl;
