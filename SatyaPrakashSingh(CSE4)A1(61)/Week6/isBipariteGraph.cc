@@ -1,11 +1,13 @@
+/* Given a graph, design an algorithm and implement it using a program to find if a graph is
+ bipartite or not. (Hint: use BFS)*/
 #include<iostream>
 #include<vector>
 #include<queue>
 using namespace std;
 bool isBipartite(vector<int>adj[],int V,int src){
     queue<int>q;
-    vector<bool>vis{V,false};
-    vector<int>color{V,-1};
+    vector<bool>vis(V,false);
+    vector<int>color(V,-1);
     q.push(src);
     vis[src]=true;
     color[src]=0;//0-yellow 1-green

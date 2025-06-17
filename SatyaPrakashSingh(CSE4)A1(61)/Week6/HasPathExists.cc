@@ -1,3 +1,5 @@
+/*Given a (directed/undirected) graph, design an algorithm and implement it using a program to
+ find if a path exists between two given vertices or not. (Hint: use DFS)*/
 #include<iostream>
 #include<vector>
 using namespace std;
@@ -29,7 +31,7 @@ int main(){
         int u,v;
         cin>>u>>v;
         adj[u].push_back(v);
-        //adj[v].push_back(u);
+        adj[v].push_back(u);
     }
     cout<<"Graph:"<<endl;
     for(int i=0;i<V;i++){

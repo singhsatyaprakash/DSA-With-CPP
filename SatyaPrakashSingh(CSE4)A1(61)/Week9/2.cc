@@ -3,10 +3,6 @@
 #include<algorithm>
 using namespace std;
 
-// Comparator to sort items based on price per kg in decreasing order
-bool compare(pair<float,int> p1, pair<float,int> p2) {
-    return p1.first > p2.first;
-}
 
 float MaxValue(vector<int> value, vector<int> weight, int w) {
 
@@ -19,7 +15,7 @@ float MaxValue(vector<int> value, vector<int> weight, int w) {
     }
 
     // Sort by price per kg in decreasing order
-    sort(vec.begin(), vec.end(), compare);
+    sort(vec.rbegin(), vec.rend());
 
     // Calculate maximum value
     float totalprice = 0;
@@ -39,7 +35,7 @@ float MaxValue(vector<int> value, vector<int> weight, int w) {
 int main() {
     int n;
     cout<<"Enter total item:"<<endl;
-    cout<<n;
+    cin>>n;
     vector<int>value;
     vector<int>weight;
     int val,wt;
@@ -53,7 +49,7 @@ int main() {
     cout<<"Enter capacity of knapsack:"<<endl;
     cin>>w;
     float res = MaxValue(value, weight, w);
-    cout << "Maximum value the farmer can sell in one go with weight " << w << " is: " << res << endl;
+    cout << "Maximum value for " << w << " is: " << res << endl;
 
     return 0;
 }
