@@ -14,17 +14,23 @@ class Node{
 class Tries{
     Node* root;
     // Helper for hard delete
-    bool hardDeleteHelper(Node* node, const string& key, int depth) {
-        if (!node) return false;
-        if (depth == key.size()) {
-            if (!node->endOfWord) return false; // word not found
+    bool hardDeleteHelper(Node* node,string& key, int depth) {
+        if(!node){ //node not exist...
+            return false;
+        } 
+        if(depth==key.size()){
+            if(!node->endOfWord){
+                return false; // word not found
+            }
             node->endOfWord = false; // Unmark end of word
             return node->children.empty(); // If no children, node can be deleted
         }
         char ch = key[depth];
-        if (node->children.count(ch) == 0) return false; // char not found
+        if(node->children.count(ch)==0){
+            return false; // char not found
+        }
         bool shouldDeleteChild = hardDeleteHelper(node->children[ch], key, depth + 1);
-        if (shouldDeleteChild) {
+        if(shouldDeleteChild){
             delete node->children[ch];
             node->children.erase(ch);
             return !node->endOfWord && node->children.empty();
@@ -58,7 +64,7 @@ public:
         return temp->endOfWord;
     }
     // Soft delete: just unmark endOfWord
-    void softDelete(const string& key) {
+    void softDelete(string key) {
         Node* temp = root;
         for (int i = 0; i < key.size(); i++) {
             if (temp->children.count(key[i]) == 0) return; // word not found
@@ -67,8 +73,8 @@ public:
         temp->endOfWord = false;
     }
     // Hard delete: remove nodes if not needed
-    void hardDelete(const string& key) {
-        hardDeleteHelper(root, key, 0);
+    void hardDelete(string key) {
+        hardDeleteHelper(root,key,0);
     }
 };
 int main(){
