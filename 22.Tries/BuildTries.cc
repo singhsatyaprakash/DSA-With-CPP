@@ -13,7 +13,25 @@ class Node{
 };
 class Tries{
     Node* root;
-    public:
+    // Helper for hard delete
+    bool hardDeleteHelper(Node* node, const string& key, int depth) {
+        if (!node) return false;
+        if (depth == key.size()) {
+            if (!node->endOfWord) return false; // word not found
+            node->endOfWord = false; // Unmark end of word
+            return node->children.empty(); // If no children, node can be deleted
+        }
+        char ch = key[depth];
+        if (node->children.count(ch) == 0) return false; // char not found
+        bool shouldDeleteChild = hardDeleteHelper(node->children[ch], key, depth + 1);
+        if (shouldDeleteChild) {
+            delete node->children[ch];
+            node->children.erase(ch);
+            return !node->endOfWord && node->children.empty();
+        }
+        return false;
+    }
+public:
     Tries(){
         root=new Node();
     }
@@ -39,6 +57,19 @@ class Tries{
         }
         return temp->endOfWord;
     }
+    // Soft delete: just unmark endOfWord
+    void softDelete(const string& key) {
+        Node* temp = root;
+        for (int i = 0; i < key.size(); i++) {
+            if (temp->children.count(key[i]) == 0) return; // word not found
+            temp = temp->children[key[i]];
+        }
+        temp->endOfWord = false;
+    }
+    // Hard delete: remove nodes if not needed
+    void hardDelete(const string& key) {
+        hardDeleteHelper(root, key, 0);
+    }
 };
 int main(){
     vector<string>words={"the","a","there","their","any","thee"};
@@ -48,6 +79,15 @@ int main(){
     }
     cout<<"\nfound:"<<trie.search("their");
     cout<<"\nfound:"<<trie.search("theirs");
+
+    // Soft delete example
+    trie.softDelete("their");
+    cout<<"\nAfter soft delete, found their: "<<trie.search("their");
+
+    // Hard delete example
+    trie.hardDelete("thee");
+    cout<<"\nAfter hard delete, found thee: "<<trie.search("thee");
+
     return 0;
     
 }
