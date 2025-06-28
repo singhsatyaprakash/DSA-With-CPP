@@ -18,7 +18,7 @@ class Tries{
         root=new Node();
     }
     void insert(string key){
-        cout<<key<<endl;
+        // cout<<key<<endl;
         Node* temp=root;
         for(auto ch:key){
             if(temp->children.count(ch)==0){
