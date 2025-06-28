@@ -29,13 +29,13 @@ class Tries{
     }
     void helper(Node* root,string &ans,string temp){
         for(pair<char,Node*>child:root->children){
-           if(child.second->endOfWord){
+           if(child.second->endOfWord){//if word in dict otherwise no need to go further because one of its prefix not exist...
              temp+=child.first;
-            if((temp.size()==ans.size() && temp<ans) ||(temp.size()>ans.size())){
+            if((temp.size()==ans.size() && temp<ans) ||(temp.size()>ans.size())){//get longest word and lexgographically smaller
                 ans=temp;
             }
             helper(child.second,ans,temp);
-            temp=temp.substr(0,temp.size()-1);
+            temp=temp.substr(0,temp.size()-1);//backtracking..reduce size by one
            }
         }
     }
