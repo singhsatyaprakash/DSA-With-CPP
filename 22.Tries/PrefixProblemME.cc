@@ -42,7 +42,7 @@ class Tries{
 };
 
 int main(){
-    vector<string>words={"zebra","zoo","dog","duck","dove","DOG"};
+    vector<string>words={"zebra","dog","duck","dove","DOG"};
     Tries trie;
     for(int i=0;i<words.size();i++){
         trie.insert(words[i]);
