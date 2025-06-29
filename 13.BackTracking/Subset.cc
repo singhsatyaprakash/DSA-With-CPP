@@ -2,7 +2,7 @@
 #include<string>
 using namespace std;
 void printSubsets(string str,string subset){
-    if(str==""){
+    if(str==""){//str.size()==0
         cout<<subset<<endl;
         return;
     }
