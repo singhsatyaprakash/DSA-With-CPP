@@ -8,7 +8,7 @@ void arrangement(string str,string ans){
     }
     for(int i=0;i<n;i++){
         char ch=str[i];
-        // "ABCDEFGH" IF i=2 --> "AB" + "DEFGH"
+        // "ABCDEFGH" IF i=2 --> "AB" + "DEFGH" // c is choosen...
         string newstr=str.substr(0,i)+str.substr(i+1,n-i-1); //(staringPoint,Length)
         arrangement(newstr ,ans+ch);//need to delete str[i]
     }
@@ -31,6 +31,7 @@ int main(){
     getline(cin,str);
     string ans="";
     permutation(str,0);
-    //arrangement(str,ans);
+    cout<<"-----"<<endl;
+    arrangement(str,ans);
     return 0;
 }
