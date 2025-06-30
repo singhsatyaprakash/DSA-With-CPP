@@ -32,7 +32,7 @@ class HashTable{
         }
         return idx % totSiz;
     }
-    void rehash(){  //O(logn)
+    void rehash(){  //O(n)
         Node** oldTable=table;
         int oldSize=totSiz;
         totSiz=2*totSiz;
@@ -66,7 +66,7 @@ class HashTable{
         }
     }
 
-    void insert(string key,int value){ //O(1) for insertion but if rehash  happend O(logn) in worst case.
+    void insert(string key,int value){ //O(1) for insertion but if rehash  happend O(n) in worst case.
         int idx=hashFunction(key);
         //create newnode...
         Node* newnode=new Node(key,value);
