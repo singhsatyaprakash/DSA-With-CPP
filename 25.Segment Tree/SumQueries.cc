@@ -88,7 +88,7 @@ int main() {
 
     for (int i = 0; i < q; i++) {
         int type = queries[i][0];
-        int l = queries[i][1];  
+        int l = queries[i][1];
         int r = queries[i][2];
 
         if (type == 1) {
