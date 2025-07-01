@@ -63,27 +63,35 @@ public:
     void updateQuery(int idx, int newVal) {
         updateUtil(idx, newVal, 0, n - 1, 0);
     }
+    void printTree(){
+        for(int i=0;i<tree.size();i++){
+            cout<<tree[i]<<" ";
+        }
+        cout<<endl;
+    }
 };
 
 int main() {
     int n;
-    cout << "Enter size of array:";
+    //cout << "Enter size of array:";
     cin >> n;
     vector<int> arr(n);
-    cout << "Enter " << n << " elements:\n";
+   // cout << "Enter " << n << " elements:\n";
     for (int i = 0; i < n; i++){
         cin >> arr[i];
     }
     int q;
-    cout << "Enter no. of queries:";
+   // cout << "Enter no. of queries:";
     cin >> q;
     vector<vector<int>> queries(q, vector<int>(3));
-    cout << "Enter queries (type left right):\n";
+    //cout << "Enter queries (type left right):\n";
     for (int i = 0; i < q; i++) {
         cin >> queries[i][0] >> queries[i][1] >> queries[i][2];
     }
 
     SegmentTree st(arr);
+    //st.printTree();
+
     long long totalSum = 0;
 
     for (int i = 0; i < q; i++) {
@@ -96,6 +104,9 @@ int main() {
             for (int j = l; j <= r; j++) {
                 arr[j] = (j - l + 1) * baseVal;
                 st.updateQuery(j, arr[j]);//lets update tree now...
+               // cout<<"Tree:";
+               // st.printTree();
+
             }
         } else if (type == 2) {
             int sum = st.rangeQuery(l, r);
