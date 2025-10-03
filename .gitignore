@@ -1,2 +1,11 @@
+# Ignore VS Code settings
 .vscode/
+
+# Ignore executable files
 *.exe
+
+# Ignore folders related to specific companies or contests
+TCS NQT IT/
+visa/
+TCSCodevita/
+Amazon/
