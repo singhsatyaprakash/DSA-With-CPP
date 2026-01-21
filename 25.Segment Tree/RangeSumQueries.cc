@@ -21,7 +21,7 @@ private:
             return 0;
         }
         //complete overlapping
-        if(qi<=si && qj>=sj){
+        if(qi<=si && sj<=qj){
             return tree[node];
         }
         

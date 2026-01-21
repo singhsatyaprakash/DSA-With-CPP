@@ -14,20 +14,16 @@ private:
         buildTree(arr,start,mid,2*node+1);
         buildTree(arr,mid+1,end,2*node+2);
         tree[node]=min(tree[2*node+1],tree[2*node+2]);//minmimumQueries
-        // tree[node]=max(tree[2*node+1],tree[tree[2*node+2]]);//maximumQueries
     }
     int getMinQuery(int qi,int qj,int start,int end,int node){
-    //int getMaxQuery(int qi,int qj,int start,int end,int node){
         if(qj<start || qi>end){//out of range...
             return INT_MAX;
-            //return INT_MIN;
         }
         if(qi>=start && qj<=end){ //totally inside the range...
             return tree[node];
         }
         int mid=start+(end-start)/2;
         return min(getMinQuery(qi,qj,start,mid,2*node+1),getMinQuery(qi,qj,mid+1,end,2*node+2));
-        // return max(getMaxQuery(qi,qj,start,mid,2*node+1),getMaxQuery(qi,qj,mid+1,end,2*node+2));
     }
     void updateUtils(int idx,int val,int start,int end,int node){
         if(start==end){
@@ -42,7 +38,6 @@ private:
             updateUtils(idx,val,mid+1,end,2*node+2);
         }
         tree[node]=min(tree[2*node+1],tree[2*node+2]);
-        // tree[node]=max(tree[2*node+1],tree[2*node+2]);
     }
 public:
     SegmentTree(vector<int>&arr){
@@ -53,9 +48,7 @@ public:
     int minQuery(int l,int r){
         return getMinQuery(l,r,0,n-1,0);
     }
-    // int maxQuery(int l,int r){
-    //     return getMaxQuery(l,r,0,n-1,0);
-    // }
+
     void update(int idx,int val){
         updateUtils(idx,val,0,n-1,0);
     }
