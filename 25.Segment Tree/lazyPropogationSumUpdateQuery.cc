@@ -16,6 +16,7 @@ class SegementTree{
             buildTree(arr,mid+1,end,2*node+2);
             tree[node]=tree[2*node+1]+tree[2*node+2];
         }
+        
         void push(int node,int start,int end){
             if(lazy[node]==0) return;//means no pending update...
             tree[node] += (end-start+1) * lazy[node]; //update at that node..
@@ -25,6 +26,7 @@ class SegementTree{
             }
             lazy[node]=0;
         }
+       
         int sumUtils(int l,int r,int start,int end,int node){
             if(l>end || r<start || l>r) return 0;
 
