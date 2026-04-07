@@ -67,13 +67,13 @@ int main() {
     cin >> n;
 
     vector<int> ages(n), scores(n);
-    cout<<"Enter ages:"<<endl;
-    for (int i = 0; i < n; i++){
-        cin >> ages[i];
-    }
     cout<<"Enter scores:"<<endl;
     for (int i = 0; i < n; i++) {
         cin >> scores[i];
+    }
+    cout<<"Enter ages:"<<endl;
+    for (int i = 0; i < n; i++){
+        cin >> ages[i];
     }
 
     // cout << bestTeamScoreRecursive(scores, ages);
