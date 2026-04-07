@@ -49,8 +49,8 @@ int bestTeamScore(vector<int>& scores, vector<int>& ages) {
 
     // dp[i] = best team score ending with player i included
     for (int i = 0; i < n; i++) {
-        dp[i] = players[i].second;
-        for (int j = 0; j < i; j++) {
+        dp[i] = players[i].second; //take i alone..
+        for (int j = 0; j < i; j++) { // who can be with i...
             if (players[j].second <= players[i].second) {
                 dp[i] = max(dp[i], dp[j] + players[i].second);
             }
@@ -63,12 +63,15 @@ int bestTeamScore(vector<int>& scores, vector<int>& ages) {
 
 int main() {
     int n;
+    cout<<"Enter n:";
     cin >> n;
 
     vector<int> ages(n), scores(n);
+    cout<<"Enter ages:"<<endl;
     for (int i = 0; i < n; i++){
         cin >> ages[i];
     }
+    cout<<"Enter scores:"<<endl;
     for (int i = 0; i < n; i++) {
         cin >> scores[i];
     }
