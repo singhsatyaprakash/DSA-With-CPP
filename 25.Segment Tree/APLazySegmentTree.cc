@@ -111,7 +111,7 @@ int main() {
     cin >> q;
 
     while (q--) {
-        int l, r, x, y;
+        int l, r, x, y;//left,right,a,d
         cin >> l >> r >> x >> y;
         st.updateQuery(l, r, x, y);
     }
