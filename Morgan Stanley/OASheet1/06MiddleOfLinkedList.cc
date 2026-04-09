@@ -1,4 +1,5 @@
-/*
+#include<bits/stdc++.h>
+using namespace std;
 class Node {
     int data;
     Node* next;
@@ -8,7 +9,7 @@ class Node {
         next = NULL;
     }
 
-}; */
+};
 
 class Solution {
   public:
