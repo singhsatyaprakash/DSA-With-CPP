@@ -3,7 +3,7 @@ Given an array of items, an i-th index element denotes the item id's, and given 
 */
 #include <bits/stdc++.h>
 using namespace std;
-
+//approach 1....
 int distinctIds(vector<int>arr,int m){
     int n=arr.size();
     unordered_map<int, int> mp;
@@ -34,6 +34,29 @@ int distinctIds(vector<int>arr,int m){
             return size - count;
     }
     return size - count;
+}
+
+// approach 2...
+int distinctIds(vector<int>arr, int k){
+    int n=arr.size();
+    unordered_map<int, int> mp;
+    for (int i = 0; i < n; i++) {
+        mp[arr[i]]++;
+    }
+
+    priority_queue<int, vector<int>, greater<int> > pq;//min heap.. having less freq remove them...
+
+    for (auto it : mp) {
+        pq.push(it.second);
+    }
+
+    while (k > 0) {
+        k -= pq.top();
+        if (k >= 0)
+            pq.pop();
+    }
+
+    return pq.size();
 }
 int main(){
     int n;
